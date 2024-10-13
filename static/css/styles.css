@@ -1,0 +1,106 @@
+/* General Styles */
+body {
+    background-color: #f4f4f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #5f27cd;
+    border-bottom: 3px solid #3b3b98;
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff !important;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #d1d8e0 !important;
+}
+
+/* Container and Headers */
+.container {
+    margin-top: 30px;
+}
+
+h1 {
+    color: #2c3e50;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Product Table Styles */
+.table {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table th {
+    background-color: #5f27cd;
+    color: white;
+    padding: 15px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.table td {
+    padding: 15px;
+    font-size: 1rem;
+    color: #34495e;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #dcdde1;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f2f6;
+}
+
+/* Product Image Styling */
+.table img {
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #1abc9c;
+    border: none;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #16a085;
+}
+
+/* Footer (optional) */
+footer {
+    margin-top: 50px;
+    padding: 20px;
+    text-align: center;
+    background-color: #5f27cd;
+    color: white;
+    border-top: 3px solid #3b3b98;
+}
+
+footer p {
+    margin: 0;
+}
