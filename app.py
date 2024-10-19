@@ -1,10 +1,18 @@
 from flask import Flask, render_template
 from pymongo import MongoClient
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
 
-# Connect to MongoDB Atlas
-client = MongoClient("mongodb+srv://c0917578:WfirtDrDqOYSLyhB@cluster0.aagh5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+# Connect to MongoDB Atlas using environment variables
+MONGODB_USERNAME = os.getenv('MONGODB_USERNAME')
+MONGODB_PASSWORD = os.getenv('MONGODB_PASSWORD')
+
+client = MongoClient(f"mongodb+srv://{MONGODB_USERNAME}:{MONGODB_PASSWORD}@cluster0.aagh5.mongodb.net/?retryWrites=true&w=majority")
 db = client['shop_db']
 products_collection = db['products']
 
@@ -24,7 +32,7 @@ mock_data = [
     }
 ]
 
-# Insert mock data into MongoDB
+# Uncomment this to insert data
 # products_collection.insert_many(mock_data)
 
 @app.route('/')
