@@ -1,0 +1,43 @@
+name: Flask App CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Checkout the Code
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Step 2: Set up Python Environment
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+
+    # Step 3: Install Dependencies
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    # Step 4: Add Environment Variables
+    - name: Set up environment variables
+      env:
+        MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+        MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
+      run: |
+        echo "MONGODB_USERNAME=${MONGODB_USERNAME}" > .env
+        echo "MONGODB_PASSWORD=${MONGODB_PASSWORD}" >> .env
+
+    # Step 5: Run Unit Tests
+    - name: Run Tests
+      run: pytest tests/
