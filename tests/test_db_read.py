@@ -15,7 +15,7 @@ def test_mongodb_connection():
     Test MongoDB connection by pinging the database.
     Purpose: Ensures the application can successfully connect to MongoDB.
     """
-    client = MongoClient(f"mongodb+srv://{MONGODB_USERNAME}:{MONGODB_PASSWORD}@cluster0.aagh5.mongodb.net/?retryWrites=true&w=majority")
+    client = MongoClient(f"mongodb+srv://{MONGODB_USERNAME}:{MONGODB_PASSWORD}@cluster0.ubgogus.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
     try:
         client.admin.command('ping')  # Pinging the MongoDB server
         assert True  # Connection succeeded

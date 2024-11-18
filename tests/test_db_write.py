@@ -15,7 +15,7 @@ def test_insert_document():
     Test inserting a document into MongoDB.
     Purpose: Ensures the application can successfully write to the database.
     """
-    client = MongoClient(f"mongodb+srv://{MONGODB_USERNAME}:{MONGODB_PASSWORD}@cluster0.aagh5.mongodb.net/?retryWrites=true&w=majority")
+    client = MongoClient(f"mongodb+srv://{MONGODB_USERNAME}:{MONGODB_PASSWORD}@cluster0.ubgogus.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
     db = client['shop_db']
     collection = db['products']
 
