@@ -19,7 +19,7 @@ jobs:
 
     # Step 2: Set up Python Environment
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v3
       with:
         python-version: 3.11
 
@@ -39,5 +39,5 @@ jobs:
         echo "MONGODB_PASSWORD=${MONGODB_PASSWORD}" >> .env
 
     # Step 5: Run Unit Tests
-    - name: Run Tests
+    - name: Run tests
       run: pytest tests/
