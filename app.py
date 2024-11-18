@@ -12,11 +12,15 @@ app = Flask(__name__)
 MONGODB_USERNAME = os.getenv('MONGODB_USERNAME')
 MONGODB_PASSWORD = os.getenv('MONGODB_PASSWORD')
 
-client = MongoClient(f"mongodb+srv://{MONGODB_USERNAME}:{MONGODB_PASSWORD}@cluster0.aagh5.mongodb.net/?retryWrites=true&w=majority")
+# Verify credentials are loaded correctly
+if not MONGODB_USERNAME or not MONGODB_PASSWORD:
+    raise ValueError("Missing MongoDB credentials in environment variables")
+
+client = MongoClient(f"mongodb+srv://{MONGODB_USERNAME}:{MONGODB_PASSWORD}@cluster0.ubgogus.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 db = client['shop_db']
 products_collection = db['products']
 
-# Insert mock data into the products collection
+# Insert mock data into the products collection (only if empty)
 mock_data = [
     {
         "name": "Laptop",
@@ -32,8 +36,8 @@ mock_data = [
     }
 ]
 
-# Uncomment this to insert data
-products_collection.insert_many(mock_data)
+if products_collection.count_documents({}) == 0:
+    products_collection.insert_many(mock_data)
 
 @app.route('/')
 def home():
