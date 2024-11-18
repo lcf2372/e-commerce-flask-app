@@ -33,7 +33,7 @@ mock_data = [
 ]
 
 # Uncomment this to insert data
-# products_collection.insert_many(mock_data)
+products_collection.insert_many(mock_data)
 
 @app.route('/')
 def home():
